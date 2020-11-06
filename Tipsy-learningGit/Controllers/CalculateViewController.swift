@@ -18,6 +18,8 @@ class CalculateViewController: UIViewController {
     
     var calculateBill = CalculateBill()
     
+    var bill: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,9 +60,9 @@ class CalculateViewController: UIViewController {
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         
-        let bill = billTextField.text!
+        bill = billTextField.text!
 
-        calculateBill.calculate(bill)
+        calculateBill.calculate(bill ?? "0.0")
         
         performSegue(withIdentifier: "goToResult", sender: self)
     }
@@ -71,6 +73,7 @@ class CalculateViewController: UIViewController {
             resultVC.total = calculateBill.total
             resultVC.people = calculateBill.numberOfpeople
             resultVC.tip = calculateBill.tip * 100
+            resultVC.billValue = bill 
             
         }
     }

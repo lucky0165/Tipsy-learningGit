@@ -252,23 +252,55 @@
                                     <action selector="recalculatePressed:" destination="WJ3-Jd-Aqo" eventType="touchUpInside" id="Sbh-ME-o2K"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k8b-Ug-hzM">
+                                <rect key="frame" x="40" y="460" width="150" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcu-ys-Gow">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-rD-Yqm">
+                                        <rect key="frame" x="0.0" y="33.5" width="150" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IH-fl-NyK">
+                                        <rect key="frame" x="0.0" y="66.5" width="150" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="33O-nf-cxl"/>
+                                    <constraint firstAttribute="height" constant="100" id="HjD-Vo-C6l"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LAP-uX-BP7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Wk2-RZ-TZA" firstAttribute="leading" secondItem="LAP-uX-BP7" secondAttribute="leading" id="2UQ-EO-hEd"/>
+                            <constraint firstItem="k8b-Ug-hzM" firstAttribute="top" secondItem="46P-c7-EZn" secondAttribute="bottom" constant="40" id="68M-H4-L0F"/>
                             <constraint firstItem="46P-c7-EZn" firstAttribute="centerX" secondItem="1x7-1d-Sne" secondAttribute="centerX" id="AuR-mO-ukL"/>
                             <constraint firstItem="oRu-jN-0cc" firstAttribute="centerX" secondItem="1x7-1d-Sne" secondAttribute="centerX" id="CEW-YA-pLk"/>
                             <constraint firstItem="Wk2-RZ-TZA" firstAttribute="top" secondItem="1x7-1d-Sne" secondAttribute="top" id="Ede-Yz-zIx"/>
                             <constraint firstAttribute="bottom" secondItem="oRu-jN-0cc" secondAttribute="bottom" constant="60" id="G27-bI-xzI"/>
+                            <constraint firstItem="k8b-Ug-hzM" firstAttribute="leading" secondItem="LAP-uX-BP7" secondAttribute="leading" constant="40" id="W1s-rP-Znr"/>
                             <constraint firstItem="LAP-uX-BP7" firstAttribute="trailing" secondItem="Wk2-RZ-TZA" secondAttribute="trailing" id="kuu-59-e7K"/>
                             <constraint firstItem="46P-c7-EZn" firstAttribute="top" secondItem="Wk2-RZ-TZA" secondAttribute="bottom" constant="5" id="mML-Yr-APn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KCI-M7-i12"/>
                     <connections>
+                        <outlet property="bill" destination="Xcu-ys-Gow" id="dJn-f5-tvx"/>
                         <outlet property="optionLabel" destination="46P-c7-EZn" id="Toe-qI-mV0"/>
+                        <outlet property="peopleLabel" destination="0Kz-rD-Yqm" id="C9I-JV-Yjh"/>
                         <outlet property="resultLabel" destination="N3a-yI-sad" id="ich-P7-Bdw"/>
+                        <outlet property="tipLabel" destination="6IH-fl-NyK" id="zGL-L6-6xa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-Ta-udV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
