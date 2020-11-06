@@ -16,6 +16,8 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var splitLabel: UILabel!
     
+    var calculateBill = CalculateBill()
+    
     var numberOfPeople: Double = 2
     var tip: Double = 0.1
     var total: String = "0.0"
@@ -35,12 +37,7 @@ class CalculateViewController: UIViewController {
         sender.isSelected = true
         
         if let currentTip = sender.currentTitle {
-            let choosenTip = currentTip.dropLast()
-            let tipOptional = Double(choosenTip)
-            
-            if let tipAsDouble = tipOptional {
-                tip = tipAsDouble / 100
-            }
+            calculateBill.tipValue(currentTip)
         }
     }
     
@@ -48,16 +45,15 @@ class CalculateViewController: UIViewController {
         numberOfPeople = sender.value
         let numberOfPeopleAsString = String(format: "%.0f", numberOfPeople)
         splitLabel.text = numberOfPeopleAsString
+        
+        calculateBill.numPeople(numberOfPeople)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         
         let bill = billTextField.text!
-        let billAsOptional = Double(bill) ?? 0.0
-        
-        let totalPrice = (billAsOptional + (billAsOptional * tip)) / numberOfPeople
-      
-        total = String(format: "%.2f", totalPrice)
+
+        calculateBill.calculate(bill)
         
         performSegue(withIdentifier: "goToResult", sender: self)
     }
@@ -65,9 +61,9 @@ class CalculateViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let resultVC = segue.destination as! ResultViewController
-            resultVC.total = total
-            resultVC.people = numberOfPeople
-            resultVC.tip = tip * 100
+            resultVC.total = calculateBill.total
+            resultVC.people = calculateBill.numberOfpeople
+            resultVC.tip = calculateBill.tip * 100
             
         }
     }
