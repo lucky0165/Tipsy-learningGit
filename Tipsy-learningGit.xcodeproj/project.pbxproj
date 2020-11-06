@@ -58,13 +58,37 @@
 			children = (
 				7AC9C22025550BE6005CC628 /* AppDelegate.swift */,
 				7AC9C22225550BE6005CC628 /* SceneDelegate.swift */,
-				7AC9C22425550BE6005CC628 /* ViewController.swift */,
-				7AC9C22625550BE6005CC628 /* Main.storyboard */,
+				7AC9C23825550C0B005CC628 /* Models */,
+				7AC9C23525550BFF005CC628 /* Views */,
+				7AC9C23625550C05005CC628 /* Controllers */,
 				7AC9C22925550BE7005CC628 /* Assets.xcassets */,
 				7AC9C22B25550BE7005CC628 /* LaunchScreen.storyboard */,
 				7AC9C22E25550BE7005CC628 /* Info.plist */,
 			);
 			path = "Tipsy-learningGit";
+			sourceTree = "<group>";
+		};
+		7AC9C23525550BFF005CC628 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AC9C22625550BE6005CC628 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AC9C23625550C05005CC628 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7AC9C22425550BE6005CC628 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7AC9C23825550C0B005CC628 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
