@@ -62,5 +62,15 @@ class CalculateViewController: UIViewController {
         performSegue(withIdentifier: "goToResult", sender: self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let resultVC = segue.destination as! ResultViewController
+            resultVC.total = total
+            resultVC.people = numberOfPeople
+            resultVC.tip = tip * 100
+            
+        }
+    }
+    
 }
 
