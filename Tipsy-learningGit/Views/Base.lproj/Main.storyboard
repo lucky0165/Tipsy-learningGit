@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tipsy_learningGit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateViewController" customModule="Tipsy_learningGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                                 <state key="normal" title="0%">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="URd-KX-fwM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hp7-3J-MLu">
                                                 <rect key="frame" x="118" y="0.0" width="118" height="70"/>
@@ -71,6 +74,9 @@
                                                 <state key="normal" title="10%">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q8o-g4-DqB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-8g-loa">
                                                 <rect key="frame" x="236" y="0.0" width="118" height="70"/>
@@ -78,6 +84,9 @@
                                                 <state key="normal" title="20%">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfr-lo-1dg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -110,6 +119,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="PyW-dz-AEw"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="stepperChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Nyf-Sc-D5u"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                         <constraints>
@@ -126,6 +138,9 @@
                                         <state key="normal" title="Calculate">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcX-Cb-07d"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -160,15 +175,23 @@
                             <constraint firstItem="lWd-Us-AHp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pGt-md-WTZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billTextField" destination="9Dy-Ed-cQe" id="AUa-jD-zAR"/>
+                        <outlet property="splitLabel" destination="Fb4-nu-dv1" id="xR7-fM-3cS"/>
+                        <outlet property="tenPctButton" destination="hp7-3J-MLu" id="sV6-T6-F5X"/>
+                        <outlet property="twentyPctButton" destination="tMO-8g-loa" id="FVN-YK-s3Y"/>
+                        <outlet property="zeroPctButton" destination="1Ah-Jg-3dr" id="OMK-w2-Jek"/>
+                        <segue destination="WJ3-Jd-Aqo" kind="presentation" identifier="goToResult" modalPresentationStyle="fullScreen" id="Eey-Rw-eke"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="89"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="J4d-La-8lf">
             <objects>
-                <viewController id="WJ3-Jd-Aqo" sceneMemberID="viewController">
+                <viewController id="WJ3-Jd-Aqo" customClass="ResultViewController" customModule="Tipsy_learningGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1x7-1d-Sne">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,6 +248,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="Recalculate"/>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="WJ3-Jd-Aqo" eventType="touchUpInside" id="Sbh-ME-o2K"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LAP-uX-BP7"/>
@@ -239,6 +265,11 @@
                             <constraint firstItem="46P-c7-EZn" firstAttribute="top" secondItem="Wk2-RZ-TZA" secondAttribute="bottom" constant="5" id="mML-Yr-APn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KCI-M7-i12"/>
+                    <connections>
+                        <outlet property="optionLabel" destination="46P-c7-EZn" id="Toe-qI-mV0"/>
+                        <outlet property="resultLabel" destination="N3a-yI-sad" id="ich-P7-Bdw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-Ta-udV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
