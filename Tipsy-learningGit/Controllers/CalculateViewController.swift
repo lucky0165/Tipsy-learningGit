@@ -18,13 +18,20 @@ class CalculateViewController: UIViewController {
     
     var calculateBill = CalculateBill()
     
-    var numberOfPeople: Double = 2
-    var tip: Double = 0.1
-    var total: String = "0.0"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        billTextField.text = ""
+        zeroPctButton.isSelected = false
+        tenPctButton.isSelected = true
+        twentyPctButton.isSelected = false
+        
+        splitLabel.text = "2"
     }
     
     
@@ -42,7 +49,7 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func stepperChanged(_ sender: UIStepper) {
-        numberOfPeople = sender.value
+        let numberOfPeople = sender.value
         let numberOfPeopleAsString = String(format: "%.0f", numberOfPeople)
         splitLabel.text = numberOfPeopleAsString
         
