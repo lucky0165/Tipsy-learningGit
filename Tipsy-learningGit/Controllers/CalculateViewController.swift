@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalculateViewController: UIViewController, UITextFieldDelegate {
+class CalculateViewController: UIViewController {
     
     
     @IBOutlet weak var billTextField: UITextField!
@@ -21,22 +21,27 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tipTextField.delegate = self
         billTextField.delegate = self
+        tipTextField.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        billTextField.text = ""
+        tipTextField.text = ""
+        
         
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        tipTextField.text = ""
-    }
-
-
     @IBAction func stepperChanged(_ sender: UIStepper) {
 
+        
         numberOfPeople = sender.value
         splitLabel.text = String(format: "%.0f", numberOfPeople)
 
-        
+        billTextField.endEditing(true)
+        tipTextField.endEditing(true)
     }
     
     
@@ -67,3 +72,10 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension CalculateViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        tipTextField.endEditing(true)
+        billTextField.endEditing(true)
+        return true
+    }
+}
